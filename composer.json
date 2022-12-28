@@ -1,5 +1,5 @@
 {
-    "name": "jasminv143/contactbook",
+    "name": "invigoratesystems/contactbook",
     "description": "magento 2 contactbook module deomo",
     "require": {
         "php": "^8.1"
