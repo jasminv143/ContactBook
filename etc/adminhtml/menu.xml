@@ -1,0 +1,62 @@
+<?xml version="1.0"?>
+<config xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance" xsi:noNamespaceSchemaLocation="urn:magento:module:Magento_Backend:etc/menu.xsd"> <menu>
+
+        <add id="InvigorateSystems_ContactBook::invigorate"
+            title="Invigorate-Systems" 
+            module="InvigorateSystems_ContactBook" 
+            sortOrder="51" 
+            resource="InvigorateSystems_ContactBook::invigorate"/>
+
+        <add id="InvigorateSystems_ContactBook::contactbook"
+            title="Contact Book" 
+            translate="title" 
+            module="InvigorateSystems_ContactBook" 
+            parent="InvigorateSystems_ContactBook::invigorate" 
+            sortOrder="50" 
+            dependsOnModule="InvigorateSystems_ContactBook" 
+            resource="InvigorateSystems_ContactBook::contactbook"/>
+
+        <add id="InvigorateSystems_ContactBook::conatcts"
+            title="Contacts" 
+            translate="title" 
+            module="InvigorateSystems_ContactBook" 
+            parent="InvigorateSystems_ContactBook::contactbook" 
+            sortOrder="10" 
+            dependsOnModule="InvigorateSystems_ContactBook" 
+            action="contactbook/create/index" 
+            resource="InvigorateSystems_ContactBook::contactbook"/>
+
+
+
+        <add id="InvigorateSystems_ContactBook::test"
+            title="test" 
+            translate="title" 
+            module="InvigorateSystems_ContactBook" 
+            parent="InvigorateSystems_ContactBook::invigorate" 
+            sortOrder="50" 
+            dependsOnModule="InvigorateSystems_ContactBook" 
+            resource="InvigorateSystems_ContactBook::test"/>
+
+
+        <add id="InvigorateSystems_ContactBook::hello_configuration"
+            title="Configuration" 
+            translate="title"
+            module="InvigorateSystems_ContactBook" 
+            sortOrder="10" 
+            parent="InvigorateSystems_ContactBook::test" 
+            dependsOnModule="InvigorateSystems_ContactBook"
+            action="adminhtml/system_config/edit/section/invigorates" 
+            resource="InvigorateSystems_ContactBook::test"/>
+<!-- 
+        <add id="InvigorateSystems_ContactBook::hello_configufsdf"
+            title="sdfsdf" 
+            translate="title"
+            module="InvigorateSystems_ContactBook" 
+            sortOrder="10" 
+            parent="InvigorateSystems_ContactBook::test" 
+            dependsOnModule="InvigorateSystems_ContactBook"
+            action="adminhtml/system_config/edit/section/invigorate" 
+            resource="InvigorateSystems_ContactBook::test"/>    -->
+
+    </menu>
+</config>

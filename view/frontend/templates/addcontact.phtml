@@ -1,0 +1,59 @@
+<?php 
+// print_r();
+
+ ?>
+<div id="custom-form">
+	<form class="form " action="<?php echo $this->getUrl('contactbook/customer/save', ['_secure' => true]);?>"
+		id="custom-form" method="post" data-hasrequired="<?php echo __('* Required Fields') ?>" data-mage-init='{"validation":{}}'>
+	<?php if($block->getContactIds()): 
+		$collection = $block->getEditRecord();
+		?>
+		<input type="hidden" name="contact_id" id="contact_id" value="<?php echo $block->getContactIds(); ?>" />
+	<?php endif; ?>
+
+		<input type="hidden" name="customer_id" id="customer_id" value="<?php echo $block->execute();?>" />
+	<fieldset class="fieldset">
+		<legend class="legend"><span><?php echo ($block->getContactIds()) ?   __("Edit Contact") : __("Add New Contact") ; ?></span></legend><br />
+		<div class="field name required">
+			<label class="label" for="name"><span><?php echo __('Name') ?></span></label>
+			<div class="control">
+				<input name="name" id="name" value="<?=  (isset($collection)) ? $collection->getName() : ""; ?>" title="<?php echo __('Name') ?>" class="input-text" type="text" data-validate="{required:true}"/>
+			</div>
+		</div>
+		<div class="field gender required">
+			<label class="label" for="gender"><span><?php echo __('Gender') ?></span></label>
+			<div class="control">
+				<select name="gender" id="gender" data-validate="{required:true, 'validate-select':true}">
+					<option value=""><?php echo __('Please Select')?></option>
+					<option value="male" <?php if(isset($collection)): echo ($collection->getGender() == "male") ? "selected" : ""; endif; ?> ><?php echo __('Male')?></option>
+					<option value="female" <?php if(isset($collection)): echo ($collection->getGender() == "female") ? "selected" : ""; endif; ?>><?php echo __('Female')?></option>
+				</select>
+			</div>
+		</div>
+		<div class="field email required">
+			<label class="label" for="email"><span><?php echo __('Email') ?></span></label>
+			<div class="control">
+				<input name="email" id="email" value="<?=  (isset($collection)) ? $collection->getEmail() : ""; ?>" title="<?php echo __('Email') ?>" class="input-text" type="email" data-validate="{required:true, 'validate-email':true}"/>
+			</div>
+		</div>
+			<div class="field phone_number">
+				<label class="label" for="phone_number"><span><?php echo __('Phone Number') ?></span></label>
+				<div class="control">
+					<input name="phone_number" id="phone_number" title="<?php echo __('Phone Number') ?>" value="<?=  (isset($collection)) ? $collection->getPhoneNumber() : ""; ?>" class="input-number" type="number" data-validate="{required:true}" />
+				</div>
+			</div>
+			<div class="field city required">
+				<label class="label" for="city"><span><?php echo __('City') ?></span></label>
+				<div class="control">
+					<input name="city" id="city" title="<?php echo __('City') ?>" value="<?=  (isset($collection)) ? $collection->getCity() : ""; ?>" class="input-text" type="text" data-validate="{required:true}"/>
+				</div>
+			</div>
+		</fieldset>
+		<div class="actions-toolbar">
+			<div class="primary">
+				<input type="submit" name="submit" title="<?php echo __('Submit') ?>" class="action submit primary" 
+				value="<?php  echo ($block->getContactIds()) ? __('Save') : __('Submit') ;  ?>" id="custom_btn" />
+			</div>
+		</div>
+	</form>
+</div>

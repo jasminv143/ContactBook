@@ -1,0 +1,24 @@
+{
+    "name": "beebots/magento2-address-autocomplete",
+    "description": "Enable Google's Address Autocomplete on address forms throughout Magento",
+    "require": {
+        "php": "^8.1",
+        "beebots/magento2-admin-order-helper": "^1.0.1"
+    },
+    "type": "magento2-module",
+    "version": "1.0.2",
+    "license": "MIT",
+    "support": {
+        "docs": "https://github.com/beebots/magento2-address-autocomplete",
+        "issues": "https://github.com/beebots/magento2-address-autocomplete/issues",
+        "source": "https://github.com/beebots/magento2-address-autocomplete"
+    },
+    "autoload": {
+        "files": [
+            "registration.php"
+        ],
+        "psr-4": {
+            "BeeBots\\AddressAutocomplete\\": ""
+        }
+    }
+}

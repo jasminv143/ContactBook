@@ -1,0 +1,46 @@
+
+<?php $collection = $block->getCustomCollection(); ?>
+<a href="<?php echo $block->getUrl('contactbook/customer/create'); ?>" class="col-2 new_contact btn">Add New Contact</a>
+<?php if (count($collection) > 0 && count($collection) != 0) : ?>
+<div class="table-wrapper orders-history">
+    <table class="data table table-order-items history" id="my-orders-table">
+        <caption class="table-caption"><?= $block->escapeHtml(__('Contact Book')) ?></caption>
+        <thead>
+            <tr>
+                <th scope="col" class="col id"><?= $block->escapeHtml(__('Order #')) ?></th>
+                <th scope="col" class="col name"><?= $block->escapeHtml(__('Name')) ?></th>
+                <th scope="col" class="col gender"><?= $block->escapeHtml(__('Gender')) ?></th>
+                <th scope="col" class="col phoneNo"><?= $block->escapeHtml(__('Phone Number')) ?></th>
+                <th scope="col" class="col email"><?= $block->escapeHtml(__('Email')) ?></th>
+                <th scope="col" class="col create"><?= $block->escapeHtml(__('Create Date')) ?></th>
+                <th scope="col" class="col update"><?= $block->escapeHtml(__('Update Date')) ?></th>
+                <th scope="col" class="col actions"><?= $block->escapeHtml(__('Action')) ?></th>
+            </tr>
+        </thead>
+        <tbody>
+            <?php foreach ($collection as $contact) : ?>
+                <tr>
+                    <td data-th="<?= $block->escapeHtml(__('Order #')) ?>" class="col id"><?= $contact->getContactId(); ?></td>
+                    <td data-th="<?= $block->escapeHtml(__('Name')) ?>" class="col name"><?= $contact->getName();  ?></td>
+                    <td data-th="<?= $block->escapeHtml(__('Gender')) ?>" class="col gender"><?= $contact->getGender();  ?></td>
+                    <td data-th="<?= $block->escapeHtml(__('Phone Number')) ?>" class="col phoneNo"><?= $contact->getPhoneNumber(); ?></td>
+                    <td data-th="<?= $block->escapeHtml(__('Email')) ?>" class="col email"><?= $contact->getEmail(); ?></td>
+                    <td data-th="<?= $block->escapeHtml(__('create')) ?>" class="col create"><?= $contact->getCreatedAt();  ?></td>
+                    <td data-th="<?= $block->escapeHtml(__('update')) ?>" class="col update"><?= $contact->getUpdatedAt(); ?></td>
+                    <td data-th="<?= $block->escapeHtml(__('Actions')) ?>" class="col actions">
+                    	<a href="<?php echo $block->getUrl('contactbook/customer/edit')."?id=".$contact->getContactId()."&cid=".$contact->getCustomerId();  ?>" class="action edit">
+                    		<?= $block->escapeHtml(__('Edit')) ?>
+                    	</a>
+                    	<a href="<?php echo $block->getUrl('contactbook/customer/delete')."?id=".$contact->getContactId()."&cid=".$contact->getCustomerId(); ?>" class="action delate">
+                    		<?= $block->escapeHtml(__('Delete')) ?>
+                    	</a>
+                    </td>
+                </tr>
+            <?php endforeach; ?>
+        </tbody>
+    </table>
+</div>
+<?php else : ?>
+    <div class="message info empty"><span><?= $block->escapeHtml($block->getEmptyContactsMessage()) ?></span></div>
+<?php endif ; ?>
+

@@ -1,0 +1,17 @@
+<schema xmlns:xsi="http://www.w3.org/2001/XMLSchema-instance"
+                 xsi:noNamespaceSchemaLocation="urn:magento:framework:Setup/Declaration/Schema/etc/schema.xsd">
+    <table name="contactbook_table">
+        <column xsi:type="int" name="contact_id" identity="true" unsigned="true" nullable="false" comment="Contact Id"/>
+        <column xsi:type="int" name="customer_id"  unsigned="true" nullable="false" comment="Customer id"/>
+        <column xsi:type="varchar" name="name" nullable="true" length="255" comment="Name"/>
+        <column xsi:type="varchar" name="gender" nullable="true" length="10" comment="gender"/>
+        <column xsi:type="varchar" name="email" nullable="true" length="100" comment="email"/>
+        <column xsi:type="varchar" name="phone_number" nullable="true" length="12" comment="Phone_number"/>
+        <column xsi:type="varchar" name="city" nullable="true" length="50" comment="city"/>
+        <column xsi:type="timestamp" name="created_at" default="CURRENT_TIMESTAMP" on_update="false" comment="create data"/>
+        <column xsi:type="timestamp" name="updated_at" default="CURRENT_TIMESTAMP" on_update="true"  comment="update data"/>
+        <constraint xsi:type="primary" referenceId="PRIMARY">
+            <column name="contact_id"/>
+        </constraint>
+   </table>
+</schema>
